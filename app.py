@@ -1,11 +1,9 @@
 
-from flask import Flask,render_template
-from flask import request
+ import os
 import numpy as np
 import cv2
-from flask import Flask, request
-# app.py
 from flask import Flask, render_template, request
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 
@@ -19,10 +17,17 @@ def upload():
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         
         # Save image using OpenCV
-        #cv2.imshow("incoming_image", img)
-        cv2.imwrite('webrtc_alternative/static/image.png', img)
+        save_path = 'webrtc_alternative/static/image.png'
+        if not os.path.exists(os.path.dirname(save_path)):
+            os.makedirs(os.path.dirname(save_path))
+        success = cv2.imwrite(save_path, img)
+        if success:
+            app.logger.info('Image saved successfully')
+            return 'Image uploaded and saved successfully'
+        else:
+            app.logger.error('Failed to save image')
+            return 'Failed to save
 
-        return 'Image uploaded and saved successfully'
 
 
 @app.route('/')
