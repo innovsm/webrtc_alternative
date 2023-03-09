@@ -41,5 +41,5 @@ def show_image():
  
 # main driver function
 if __name__ == '__main__':
-    app.debug = False
+    app.debug = True
     app.run(port = "0.0.0.0") # , port=8100, ssl_context='adhoc'
