@@ -3,7 +3,6 @@ from flask import Flask,render_template
 from flask import request
 import numpy as np
 import cv2
-import pandas as pd
 from flask import Flask, request
 # app.py
 from flask import Flask, render_template, request
@@ -42,6 +41,5 @@ def show_image():
  
 # main driver function
 if __name__ == '__main__':
-
-
-    app.run('0.0.0.0', debug=True,port=8100, ssl_context='adhoc') # , port=8100, ssl_context='adhoc'
+    app.debug = False
+    app.run(port = '0.0.0.0') # , port=8100, ssl_context='adhoc'
