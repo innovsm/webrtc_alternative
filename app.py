@@ -20,7 +20,7 @@ def upload():
         
         # Save image using OpenCV
         #cv2.imshow("incoming_image", img)
-        cv2.imwrite('flask_app/static/image.png', img)
+        cv2.imwrite('webrtc_alternative/static/image.png', img)
 
         return 'Image uploaded and saved successfully'
 
