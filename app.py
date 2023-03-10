@@ -26,7 +26,7 @@ def upload():
             return 'Image uploaded and saved successfully'
         else:
             app.logger.error('Failed to save image')
-            return 'Failed to save
+            return 'Failed to save'
 
 
 
