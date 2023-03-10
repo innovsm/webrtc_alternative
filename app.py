@@ -12,6 +12,7 @@ def upload():
     if request.method == 'POST':
         image_data = request.get_data()
         nparr = np.frombuffer(image_data, np.uint8)
+        print("-",nparr)
         
         # Decode image using OpenCV
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
@@ -47,4 +48,4 @@ def show_image():
 # main driver function
 if __name__ == '__main__':
     app.debug = True
-    app.run(port = "0.0.0.0") # , port=8100, ssl_context='adhoc'
+    app.run() # , port=8100, ssl_context='adhoc'
