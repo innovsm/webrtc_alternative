@@ -1,4 +1,3 @@
-opencv-python
 certifi
 click
 Flask
@@ -6,6 +5,5 @@ Flask-SQLAlchemy
 gunicorn
 Jinja2
 numpy
-pandas
 Werkzeug
-
+mysql-connector-python

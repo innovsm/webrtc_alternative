@@ -1,14 +1,15 @@
-
-from flask import Flask,render_template
-from flask import request
+import mysql.connector
 import numpy as np
-import cv2
-import pandas as pd
-from flask import Flask, request
-# app.py
+from datetime import datetime
 from flask import Flask, render_template, request
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
+my_db = mysql.connector.connect(
+  host="sql.freedb.tech",
+  user="freedb_images",
+  password="gEzze6ZHjU#M4e2",
+  database="freedb_image_data"
+)
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -16,13 +17,17 @@ def upload():
         image_data = request.get_data()
         nparr = np.frombuffer(image_data, np.uint8)
         
-        # Decode image using OpenCV
-        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        # Generate a filename with the current datetime
+        now = datetime.now()
+        filename = now.strftime("%Y-%m-%d_%H-%M-%S") + '.jpg'
         
-        # Save image using OpenCV
-        #cv2.imshow("incoming_image", img)
-        cv2.imwrite('flask_app/static/image.png', img)
-
+        # Save the image to the database
+        my_cursor = my_db.cursor()
+        sql = "INSERT INTO images (name, image_data) VALUES (%s, %s)"
+        val = (filename, nparr.tobytes())
+        my_cursor.execute(sql, val)
+        my_db.commit()
+        
         return 'Image uploaded and saved successfully'
 
 
@@ -30,9 +35,7 @@ def upload():
 def index():
     return render_template('index.html')
 
-@app.route("/image")
-def show_image():
-    return render_template('alfa.html')
+
 
 
 
@@ -44,4 +47,4 @@ def show_image():
 if __name__ == '__main__':
 
 
-    app.run('0.0.0.0', debug=True,port=8100, ssl_context='adhoc') # , port=8100, ssl_context='adhoc'
+    app.run() # , port=8100, ssl_context='adhoc'
