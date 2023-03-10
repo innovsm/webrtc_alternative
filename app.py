@@ -27,7 +27,7 @@ def upload():
         
         # Generate a filename with the current datetime
         now = datetime.now()
-        filename = now.strftime("%Y-%m-%d_%H-%M-%S") + '.jpg'
+        filename = str(now)
         
         # Save the image to the database
         try:
