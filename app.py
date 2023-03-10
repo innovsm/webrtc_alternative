@@ -2,6 +2,7 @@ import mysql.connector
 import numpy as np
 from datetime import datetime
 from flask import Flask, render_template, request
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 my_db = mysql.connector.connect(
@@ -16,6 +17,7 @@ def upload():
     if request.method == 'POST':
         image_data = request.get_data()
         nparr = np.frombuffer(image_data, np.uint8)
+        print("-",nparr)
         
         # Generate a filename with the current datetime
         now = datetime.now()
