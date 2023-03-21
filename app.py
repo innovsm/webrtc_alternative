@@ -1,8 +1,8 @@
+
 import mysql.connector
 import numpy as np
 from datetime import datetime
 from flask import Flask, render_template, request
- 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 
@@ -48,6 +48,11 @@ def upload():
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/completed')
+
+def alfa_index():
+    return render_template('completed.html')
 
 
 
