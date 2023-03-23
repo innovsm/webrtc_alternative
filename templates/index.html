@@ -22,9 +22,15 @@
         <div class="col-12">
           <input type="range" min="0" max="10" step="0.1" value="1" id="zoom-slider" class="custom-range" />
         </div>
+
       </div>
+      <button id = "alfa" onclick = "stop()" >STOP</button>
     </div>
     <script>
+      function stop(){
+        location.replace("/completed")
+
+      }
       const video = document.getElementById('video');
       const canvas = document.getElementById('canvas');
       //alfa
@@ -72,7 +78,7 @@
 
       let sendTimer = null;
       let lastTime = 0;
-      const fpsInterval = 10000 / 2; // limit the frame rate to 1 frames per 10 - second
+      const fpsInterval =  10000 / 2; // limit the frame rate to 1 frames per 10 - second
       
       function updateCanvas(currentTime) {
         const elapsed = currentTime - lastTime;
