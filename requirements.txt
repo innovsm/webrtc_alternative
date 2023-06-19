@@ -3,6 +3,8 @@ click
 Flask
 Flask-SQLAlchemy
 gunicorn
+deepface
+tensorflow
 Jinja2
 numpy
 Werkzeug
