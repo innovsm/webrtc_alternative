@@ -39,13 +39,13 @@ def upload():
             emotion = DeepFace.analyze(img, actions = ['emotion'])
             data_1 = emotion[0]['dominant_emotion']
             print("2")
-            print(emotion)
+            #print(emotion)
             dict_1 = {'angry': 0, 'disgust' : 0,'fear' : 0, 'happy' : 0, 'sad' : 0,'surprise' : 0,'neutral': 0}
             for i in data_1:
                 dict_1[i['dominant_emotion']] += 1
             # inserting data into database
             print(dict_1['angry'], dict_1['disgust'], dict_1['fear'], dict_1['happy'], dict_1['sad'], dict_1['surprise'], dict_1['neutral'])
-            insert_emotion_data(dict_1['angry'], dict_1['disgust'], dict_1['fear'], dict_1['happy'], dict_1['sad'], dict_1['surprise'], dict_1['neutral'])
+            #insert_emotion_data(dict_1['angry'], dict_1['disgust'], dict_1['fear'], dict_1['happy'], dict_1['sad'], dict_1['surprise'], dict_1['neutral'])
 
             #cv2.imwrite("alfa/{}.jpg".format(count),img)
       
