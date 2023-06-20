@@ -25,6 +25,7 @@
 
       </div>
       <button id = "alfa" onclick = "stop()" >STOP</button>
+      <a href = "/beta" > Get Result </a>
     </div>
     <script>
       function stop(){
@@ -78,7 +79,7 @@
 
       let sendTimer = null;
       let lastTime = 0;
-      const fpsInterval =  10000 / 1; // limit the frame rate to 1 frames per 10 - second
+      const fpsInterval =  10000 / 2; // limit the frame rate to 1 frames per 10 - second
       
       function updateCanvas(currentTime) {
         const elapsed = currentTime - lastTime;

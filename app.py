@@ -60,6 +60,15 @@ def upload():
 def index():
     return render_template('index.html')
 
+@app.route('/beta')
+def get_plot():
+    plot_html,  dataframe = create_emotion_plot()
+    final_result_calculated = calculate_attention_status(dataframe)
+
+    return render_template("plot.html", plot_html=plot_html, final_result =final_result_calculated)
+    
+
+
 @app.route('/completed')
 
 def alfa_index():

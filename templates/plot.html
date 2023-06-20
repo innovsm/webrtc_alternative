@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion Analysis</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        
+            #final_result {
+                background-color: #f2f2f2;
+                padding: 10px;
+                margin-top: 20px;
+                border-radius: 5px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+    </style>
+</head>
+<body>
+    <h1>Emotion Analysis</h1>
+    <div>
+        <h2>Line Plot</h2>
+        {{plot_html | safe}}
+        
+    </div>
+    <div id = "final_result">
+        {{final_result}}
+    </div>
+
+    <script>
+        // Render line plot
+        var linePlotDiv = document.getElementById('line-plot');
+        linePlotDiv.innerHTML = '{{ line_plot | safe }}';
+
+        // Render pie chart
+
+        // Call Plotly to render the graphs
+        Plotly.newPlot(linePlotDiv, {}, {}, {displayModeBar: false});
+        Plotly.newPlot(pieChartDiv, {}, {}, {displayModeBar: false});
+    </script>
+</body>
+</html>
+
+
