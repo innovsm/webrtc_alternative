@@ -1,11 +1,9 @@
 import mysql.connector
 from datetime import datetime
 import pytz
-import numpy as np
-import matplotlib.pyplot as plt
-from io import BytesIO
-import base64
-
+#import numpy as np
+import pandas as pd
+import plotly.graph_objects as go
 
 # main_algo ========================================================================================
 
@@ -153,9 +151,7 @@ def insert_emotion_data(angry, disgust, fear, happy, sad, surprise, neutral):
 # -------------------------------------------[PLOTTING DATA] ------------------------------------------- #
 
 
-import mysql.connector
-import pandas as pd
-import plotly.graph_objects as go
+
 
 def create_emotion_plot():
     # Connect to the database

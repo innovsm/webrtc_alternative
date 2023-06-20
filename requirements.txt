@@ -9,3 +9,4 @@ Jinja2
 numpy
 Werkzeug
 mysql-connector-python
+plotly
