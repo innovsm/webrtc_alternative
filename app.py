@@ -27,9 +27,8 @@ def get_database_connection():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    if request.method == 'POST':
-        count = open("experiment.txt", "r")
-        count = int(count.read())
+    if request.method == 'POST' and np.random.randint(0, 100) % 2 == 0:  # take  half of the request
+
         image_data = request.get_data()
         nparr = np.frombuffer(image_data, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
