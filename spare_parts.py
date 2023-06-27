@@ -189,8 +189,8 @@ def create_emotion_plot():
     # Convert emotions to a DataFrame
     emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
     df = pd.DataFrame(emotions, columns=emotion_labels)
-    df['neutral'] = df['neutral'].rolling(10).mean()
-    df[['angry', 'disgust', 'fear', 'happy', 'sad', 'surprise']] = df[['angry', 'disgust', 'fear', 'happy', 'sad', 'surprise']].rolling(5).mean()
+    df['Neutral'] = df['Neutral'].rolling(10).mean()
+    df[['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise']] = df[['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise']].rolling(5).mean()
     df.dropna(inplace = True)
     df = df.astype('float64')
 
