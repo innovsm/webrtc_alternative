@@ -53,6 +53,8 @@ def upload():
         
 
         return ""
+    else:
+        return ""
      
 
 @app.route('/')
